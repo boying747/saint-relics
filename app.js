@@ -6,7 +6,7 @@ R.forEach((r,i)=>{r.i=i;r.hay=fold([r.title,r.saints.join(' '),r.original,r.engl
 const saints=[...new Set(R.flatMap(r=>r.saints))].sort((a,b)=>fold(a).localeCompare(fold(b)));
 const first=s=>fold(s)[0].toUpperCase();
 const P=new URLSearchParams(location.search);
-const S={q:P.get('q')||'',saint:P.get('saint')||'',letter:P.get('letter')||'',kind:P.get('kind')||'all',page:Math.max(1,+P.get('page')||1),size:+P.get('size')===20?20:10};
+const S={q:P.get('q')||'',saint:P.get('saint')||'',letter:P.get('letter')||'',kind:P.get('kind')||'all',page:Math.max(1,+P.get('page')||1),size:+P.get('size')===24?24:12};
 // deep-link fallback: index.html#img-0557 -> relic page
 if(/^#img-\d+$/.test(location.hash)){location.replace('relic/'+location.hash.slice(1)+'.html');return}
 const mk=(t,fn,dis,cls)=>{const b=document.createElement('button');b.type='button';b.className='btn'+(cls?' '+cls:'');b.textContent=t;if(dis)b.disabled=true;b.onclick=fn;return b};
